@@ -6,7 +6,7 @@
     <div v-else-if="donationMode === 'DropOff'">
       <h3>Übergabe an der Geschäftstelle</h3>
     </div>
-    <form @submit.prevent="handleSubmit">
+    <form @submit="handleSubmit">
       <CustomerInformationMask
         :donationMode="donationMode"
         :customerInformation="customerInformation"
@@ -15,7 +15,7 @@
         @mode-change="handleModeChange"
         @update:customerInformation="updateCustomerInformation"
       />
-      <button class="btn btn-primary " type="submit">Spende abschicken</button>
+      <button class="btn btn-primary" type="submit">Spende abschicken</button>
       <div v-for="donationNumber in numberOfDonations" :key="donationNumber">
         <AddClothingDonation
           :index="donationNumber - 1"
@@ -76,6 +76,7 @@ export default {
     handleSubmit() {
       console.log("Kundendaten: ", this.customerInformation);
       console.log("Spenden: ", this.donations);
+      this.$router.push("/confirmation");
     },
   },
   props: {
