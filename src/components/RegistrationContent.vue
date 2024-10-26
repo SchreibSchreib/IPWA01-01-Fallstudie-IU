@@ -76,7 +76,14 @@ export default {
     handleSubmit() {
       console.log("Kundendaten: ", this.customerInformation);
       console.log("Spenden: ", this.donations);
-      this.$router.push("/confirmation");
+      this.$router.push({
+        path: "/confirmation",
+        query: {
+          donationMode: JSON.stringify(this.donationMode),
+          customerInformation: JSON.stringify(this.customerInformation),
+          donations: JSON.stringify(this.donations),
+        },
+      });
     },
   },
   props: {

@@ -13,12 +13,15 @@
     <div class="row mb-3">
       <div class="col d-flex justify-content-center align-items-center text-center fs-5">
         Die Spende wurde erfolgreich angenommen und leistet wertvolle Hilfe für die
-        Menschen in {{ customerInformation }}.
+        Menschen in {{ customerInformation.crisisArea }}.
       </div>
     </div>
     <div class="row">
       <div class="col d-flex justify-content-center align-items-center text-center fs-5">
-        <ConfirmRegistrationCustomerInformationCard />
+        <ConfirmRegistrationCustomerInformationCard
+          :customer-information="customerInformation"
+          :donation-mode="donationMode"
+        />
       </div>
     </div>
     <div class="row">
@@ -38,6 +41,10 @@ export default {
     ConfirmRegistrationCustomerInformationCard,
   },
   props: {
+    donationMode: {
+      type: String,
+      required: true,
+    },
     customerInformation: {
       type: Object,
       required: true,
