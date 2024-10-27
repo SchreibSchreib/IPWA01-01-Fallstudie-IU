@@ -1,5 +1,5 @@
 <template>
-  <div class="container-sm p-4">
+  <div class="p-4">
     <HomeContent />
   </div>
 </template>

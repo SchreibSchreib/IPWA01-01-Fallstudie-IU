@@ -1,10 +1,10 @@
 <template>
-  <div class="pt-2">
+  <div>
     <div v-if="donationMode === 'TakeUp'">
-      <h3>Abholung bei Ihnen zuhause</h3>
+      <h4>Abholung bei Ihnen zuhause</h4>
     </div>
     <div v-else-if="donationMode === 'DropOff'">
-      <h3>Übergabe an der Geschäftstelle</h3>
+      <h4>Übergabe an der Geschäftstelle</h4>
     </div>
     <form @submit="handleSubmit">
       <CustomerInformationMask
@@ -76,13 +76,16 @@ export default {
     handleSubmit() {
       console.log("Kundendaten: ", this.customerInformation);
       console.log("Spenden: ", this.donations);
+      sessionStorage.setItem(
+        "donationData",
+        JSON.stringify({
+          donationMode: this.donationMode,
+          customerInformation: this.customerInformation,
+          donations: this.donations,
+        })
+      );
       this.$router.push({
         path: "/confirmation",
-        query: {
-          donationMode: JSON.stringify(this.donationMode),
-          customerInformation: JSON.stringify(this.customerInformation),
-          donations: JSON.stringify(this.donations),
-        },
       });
     },
   },

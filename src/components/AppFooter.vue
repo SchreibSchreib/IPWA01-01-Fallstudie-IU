@@ -19,14 +19,14 @@
       <RouterLink
         type="button"
         class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
-        to="/"
+        to="/imprint"
       >
         Impressum
       </RouterLink>
       <RouterLink
         type="button"
         class="btn btn-secondary border border-dark btn-lg m-0 rounded-0 d-sm-none"
-        to="/"
+        to="/data-privacy"
       >
         Datenschutz
       </RouterLink>
@@ -41,8 +41,8 @@
         </RouterLink>
       </div>
       <div class="col-sm p-0 d-none d-sm-block">
-        <RouterLink class="nav-link" to="/"> Impressum </RouterLink>
-        <RouterLink class="nav-link" to="/"> Datenschutz </RouterLink>
+        <RouterLink class="nav-link" to="/imprint"> Impressum </RouterLink>
+        <RouterLink class="nav-link" to="/data-privacy"> Datenschutz </RouterLink>
       </div>
     </div>
     <div class="d-flex justify-content-center align-items-center p-2">

@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column min-vh-100">
-    <header>
-      <AppHeader class="sticky-top" />
+    <header class="sticky-top">
+      <AppHeader />
     </header>
     <main>
       <router-view />

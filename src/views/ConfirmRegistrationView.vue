@@ -17,11 +17,20 @@ export default {
     ConfirmRegistrationComponent,
   },
   data() {
+    const donationData = JSON.parse(sessionStorage.getItem("donationData") || "{}");
     return {
-      donationMode: this.$route.query.donationMode,
-      customerInformation: JSON.parse(this.$route.query.customerInformation || "{}"),
-      donations: JSON.parse(this.$route.query.donations || "[]"),
+      donationMode: donationData.donationMode,
+      customerInformation: donationData.customerInformation,
+      donations: donationData.donations,
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    const donationData = JSON.parse(sessionStorage.getItem("donationData") || "{}");
+    if (donationData.donations) {
+      next();
+    } else {
+      next({ path: "/registration" });
+    }
   },
 };
 </script>
