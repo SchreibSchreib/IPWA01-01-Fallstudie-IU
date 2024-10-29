@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .navbar {
   background: linear-gradient(90deg, #ffd3a5, #eb0839);
 }

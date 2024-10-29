@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-content-center pb-3">
-    <div class="card p-2 col-lg-6 col-md-8 col-sm-10 col-11">
-      <div class="justify-content-center">
+    <div class="card p-2 col-lg-6 col-md-8 col-10">
+      <div>
         <img
           src="@/assets/PickUp.png"
           v-if="donationMode === 'TakeUp'"
@@ -18,10 +18,9 @@
       <SwitchRegistrationModeButton
         @mode-change="handleModeChange"
       ></SwitchRegistrationModeButton>
-      <h5 class="card-title">Ihre Daten</h5>
+      <h4 class="card-title pb-1">Ihre Daten</h4>
       <div class="row">
         <div class="col">
-          <div class="align-items-center justify-content-center">
             <input
               type="text"
               class="form-control rounded-5"
@@ -30,7 +29,6 @@
               v-model="childCustomerInformation.firstName"
               required
             />
-          </div>
         </div>
         <div class="col">
           <div class="align-items-center justify-content-center">

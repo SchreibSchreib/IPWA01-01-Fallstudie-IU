@@ -1,9 +1,6 @@
 <template>
   <div class="container">
-    <div class="row text-center">
-      <h2 class="pt-1 ">Registrierungsformular</h2>
-      <RegistrationContent :donationMode="selectedMode" @mode-change="updateMode" />
-    </div>
+    <RegistrationContent :donationMode="selectedMode" @mode-change="updateMode" />
   </div>
 </template>
 

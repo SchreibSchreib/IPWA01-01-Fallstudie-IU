@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <div v-if="donationMode === 'TakeUp'">
-      <h4>Abholung bei Ihnen zuhause</h4>
-    </div>
-    <div v-else-if="donationMode === 'DropOff'">
-      <h4>Übergabe an der Geschäftstelle</h4>
+  <div class="row text-center">
+    <h2 class="mt-3">Registrierungsformular</h2>
+    <div class="mb-2">
+      <div v-if="donationMode === 'TakeUp'">
+        <h4>Abholung bei Ihnen zuhause</h4>
+      </div>
+      <div v-else-if="donationMode === 'DropOff'">
+        <h4>Übergabe an der Geschäftstelle</h4>
+      </div>
     </div>
     <form @submit="handleSubmit">
       <CustomerInformationMask
@@ -15,7 +18,7 @@
         @mode-change="handleModeChange"
         @update:customerInformation="updateCustomerInformation"
       />
-      <button class="btn btn-primary" type="submit">Spende abschicken</button>
+      <button class="btn btn-success" type="submit">Spende abschicken</button>
       <div v-for="donationNumber in numberOfDonations" :key="donationNumber">
         <AddClothingDonation
           :index="donationNumber - 1"
@@ -97,5 +100,9 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
+<style scoped>
+.btn {
+  background-color: #a153d8;
+  border: 0;
+}
+</style>

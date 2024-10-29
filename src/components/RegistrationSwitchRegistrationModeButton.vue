@@ -1,10 +1,19 @@
 <template>
-  <div class="w-100 p-2">
-    <button type="button" class="btn btn-primary w-100 mb-2 align-items-center border-black" @click="switchMode('TakeUp')" to="/">
+  <div class="p-2">
+    <button
+      type="button"
+      class="btn btn-primary w-100 mb-2"
+      @click="switchMode('TakeUp')"
+      to="/"
+    >
       Abholung
     </button>
-    <button type="button" class="btn btn-primary w-100 align-items-center border-black"
-      @click="switchMode('DropOff')" to="/">
+    <button
+      type="button"
+      class="btn btn-primary w-100"
+      @click="switchMode('DropOff')"
+      to="/"
+    >
       Übergabe an der Geschäftstelle
     </button>
   </div>
@@ -20,3 +29,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.btn {
+  background-color: #a153d8;
+  border: 0;
+}
+</style>

@@ -1,14 +1,12 @@
 <template>
   <div class="container">
-    <div class="row text-justify">
-      <h2>Herzlich willkommen bei WärmeSpenden</h2>
-      <hr class="my-3" />
-      <p class="fs-5">
-        WärmeSpenden e.V. ist eine Initiative, die sich für hilfsbedürftige Menschen in
-        Krisengebieten einsetzt. Wir nehmen Kleiderspenden von großzügigen Spendern an, um
-        denen zu helfen, die in Not sind.
-      </p>
-    </div>
+    <h2>Herzlich willkommen bei WärmeSpenden</h2>
+    <hr class="my-3" />
+    <p class="fs-5">
+      WärmeSpenden e.V. ist eine Initiative, die sich für hilfsbedürftige Menschen in
+      Krisengebieten einsetzt. Wir nehmen Kleiderspenden von großzügigen Spendern an, um
+      denen zu helfen, die in Not sind.
+    </p>
     <div class="bg-light rounded-4 border p-2">
       <h2>So funktioniert es:</h2>
       <ul>
