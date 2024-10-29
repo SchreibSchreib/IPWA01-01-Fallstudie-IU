@@ -19,14 +19,15 @@
     <div class="row">
       <div class="col d-flex justify-content-center align-items-center text-center fs-5">
         <ConfirmRegistrationCustomerInformationCard
-          :customer-information="customerInformation"
           :donation-mode="donationMode"
+          :customer-information="customerInformation"
+          :donations="donations"
         />
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
       <div class="col d-flex justify-content-center align-items-center text-center fs-5">
-        In Kürze erhalten Sie eine E-Mail mit allen wichtigen Informationen von uns.
+        Ihre Auftragsbestätigung erhalten sie von uns in Kürze per E-mail
       </div>
     </div>
   </div>

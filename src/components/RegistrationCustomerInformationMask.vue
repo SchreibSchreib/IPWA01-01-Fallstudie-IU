@@ -69,8 +69,13 @@
                 id="zipCode"
                 placeholder="PLZ"
                 v-model="childCustomerInformation.zipCode"
+                @input="validateZipCode"
+                :class="{ 'is-invalid': !isValidZipCode }"
                 required
               />
+              <div v-if="!isValidZipCode" class="invalid-feedback">
+                Die Postleitzahl muss 5 Ziffern haben und mit "39" beginnen.
+              </div>
             </div>
           </div>
           <div class="col-8">
@@ -181,6 +186,7 @@ export default {
         streetNumber: this.customerInformation.streetNumber,
         crisisArea: this.customerInformation.crisisArea,
       },
+      isValidZipCode: true,
     };
   },
   watch: {
@@ -194,6 +200,14 @@ export default {
   methods: {
     handleModeChange(newMode) {
       this.$emit("mode-change", newMode);
+    },
+    validateZipCode() {
+      const enteredZipCode = this.childCustomerInformation.zipCode.toString();
+      if (!(enteredZipCode.length === 5 && enteredZipCode.substring(0, 2) === "39")) {
+        this.isValidZipCode = false;
+      } else {
+        this.isValidZipCode = true;
+      }
     },
   },
 };

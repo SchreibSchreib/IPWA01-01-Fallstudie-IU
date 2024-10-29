@@ -7,7 +7,7 @@
           <div class="mb-4 fs-5">
             <p class="m-0 fw-bold">Wärmespenden e.V.</p>
             <p class="m0">
-              Halberstädter Straße 1<br />
+              Halberstädter Straße 999<br />
               39112 Magdeburg<br />
               Deutschland
             </p>

@@ -2,11 +2,9 @@
   <div class="row justify-content-center pb-3 w-100">
     <div class="card border-info border-5 pt-1 pb-1 d-none d-sm-block w-auto mx-auto">
       <div class="row">
-        <div class="col">
-          <h5 class="col d-flex justify-content-center fs-3 mx-3">
-            Ihre Daten im Überblick
-          </h5>
-        </div>
+        <h5 class="col d-flex justify-content-center fs-3 mx-3">
+          Ihre Daten im Überblick
+        </h5>
       </div>
       <div class="row">
         <div
@@ -75,16 +73,19 @@
           Uhrzeit:
         </div>
         <div class="col d-flex justify-content-end mx-3 text-nowrap">{{ time }}</div>
+        <div class="mb-2">
+        <h5 class="col d-flex justify-content-center fs-3 mx-3">Getätigte Spenden</h5>
+      </div>
+      <div v-for="donation in donations" :key="donation">
+        <div class="mb-3">
+          <div class="text-muted  fw-bold"> {{ donation.quantity }}x {{donation.clothing}}</div>
+          <div></div>
+        </div>
+      </div>
       </div>
     </div>
     <div class="card border-info border-5 pt-1 pb-1 d-sm-none">
-      <div class="row">
-        <div class="col">
-          <h5 class="col d-flex justify-content-center fs-3 mx-3">
-            Ihre Daten im Überblick
-          </h5>
-        </div>
-      </div>
+      <h5 class="col d-flex justify-content-center fs-3 mx-3">Ihre Daten im Überblick</h5>
       <div class="mb-2">
         <div class="text-muted text-uppercase fw-bold">Name</div>
         <div>{{ customerInformation.firstName }} {{ customerInformation.lastName }}</div>
@@ -113,9 +114,18 @@
         <div class="text-muted text-uppercase fw-bold">Datum</div>
         <div>{{ date }}</div>
       </div>
-      <div>
+      <div class="mb-3">
         <div class="text-muted text-uppercase fw-bold">Uhrzeit</div>
         <div>{{ time }}</div>
+      </div>
+      <div class="mb-2">
+        <h5 class="col d-flex justify-content-center fs-3 mx-3">Getätigte Spenden</h5>
+      </div>
+      <div v-for="donation in donations" :key="donation">
+        <div class="mb-3">
+          <div class="text-muted  fw-bold"> {{ donation.quantity }}x {{donation.clothing}}</div>
+          <div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -132,6 +142,10 @@ export default {
     },
     customerInformation: {
       type: Object,
+      required: true,
+    },
+    donations: {
+      type: Array,
       required: true,
     },
   },
