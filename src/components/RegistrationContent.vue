@@ -18,7 +18,7 @@
         @mode-change="handleModeChange"
         @update:customerInformation="updateCustomerInformation"
       />
-      <button class="btn btn-success" type="submit">Spende abschicken</button>
+      <button class="btn btn-success mb-3" type="submit">Spende abschicken</button>
       <div v-for="donationNumber in numberOfDonations" :key="donationNumber">
         <AddClothingDonation
           :index="donationNumber - 1"
@@ -100,6 +100,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .btn {
   background-color: #a153d8;

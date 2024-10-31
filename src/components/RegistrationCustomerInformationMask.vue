@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center pb-3">
-    <div class="card p-2 col-lg-6 col-md-8 col-10">
+    <div class="card rounded-4 p-2 col-lg-6 col-md-8 col-10">
       <div>
         <img
           src="@/assets/PickUp.png"
@@ -15,103 +15,89 @@
           alt="..."
         />
       </div>
-      <SwitchRegistrationModeButton
-        @mode-change="handleModeChange"
-      ></SwitchRegistrationModeButton>
+      <SwitchRegistrationModeButton @mode-change="handleModeChange" />
       <h4 class="card-title pb-1">Ihre Daten</h4>
       <div class="row">
         <div class="col">
-            <input
-              type="text"
-              class="form-control rounded-5"
-              id="firstName"
-              placeholder="Vorname"
-              v-model="childCustomerInformation.firstName"
-              required
-            />
+          <input
+            type="text"
+            class="form-control rounded-5"
+            id="firstName"
+            placeholder="Vorname"
+            v-model="childCustomerInformation.firstName"
+            required
+          />
         </div>
         <div class="col">
-          <div class="align-items-center justify-content-center">
-            <input
-              type="text"
-              class="form-control rounded-5"
-              id="lastName"
-              placeholder="Nachname"
-              v-model="childCustomerInformation.lastName"
-              required
-            />
-          </div>
+          <input
+            type="text"
+            class="form-control rounded-5"
+            id="lastName"
+            placeholder="Nachname"
+            v-model="childCustomerInformation.lastName"
+            required
+          />
         </div>
         <div class="row m-0 p-0 pt-3 pb-3">
           <div class="col">
-            <div class="align-items-center justify-content-center">
-              <input
-                type="email"
-                class="form-control rounded-5"
-                id="email"
-                placeholder="Email"
-                v-model="childCustomerInformation.email"
-                required
-              />
-            </div>
+            <input
+              type="email"
+              class="form-control rounded-5"
+              id="email"
+              placeholder="Email"
+              v-model="childCustomerInformation.email"
+              required
+            />
           </div>
         </div>
       </div>
       <div v-if="donationMode === 'TakeUp'">
         <div class="row">
           <div class="col-4">
-            <div class="align-items-center justify-content-center">
-              <input
-                type="number"
-                class="form-control rounded-5"
-                id="zipCode"
-                placeholder="PLZ"
-                v-model="childCustomerInformation.zipCode"
-                @input="validateZipCode"
-                :class="{ 'is-invalid': !isValidZipCode }"
-                required
-              />
-              <div v-if="!isValidZipCode" class="invalid-feedback">
-                Die Postleitzahl muss 5 Ziffern haben und mit "39" beginnen.
-              </div>
+            <input
+              type="number"
+              class="form-control rounded-5"
+              id="zipCode"
+              placeholder="PLZ"
+              v-model="childCustomerInformation.zipCode"
+              @input="validateZipCode"
+              :class="{ 'is-invalid': !isValidZipCode }"
+              required
+            />
+            <div v-if="!isValidZipCode" class="invalid-feedback">
+              Die Postleitzahl muss 5 Ziffern haben und mit "39" beginnen.
             </div>
           </div>
           <div class="col-8">
-            <div class="align-items-center justify-content-center">
-              <input
-                type="text"
-                class="form-control rounded-5"
-                id="city"
-                placeholder="Stadt"
-                v-model="childCustomerInformation.city"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              class="form-control rounded-5"
+              id="city"
+              placeholder="Stadt"
+              v-model="childCustomerInformation.city"
+              required
+            />
           </div>
           <div class="row m-0 p-0 pt-3 pb-3">
             <div class="col-9">
-              <div class="align-items-center justify-content-center">
-                <input
-                  type="text"
-                  class="form-control rounded-5"
-                  id="street"
-                  placeholder="Straße"
-                  v-model="childCustomerInformation.street"
-                  required
-                />
-              </div>
+              <input
+                type="text"
+                class="form-control rounded-5"
+                id="street"
+                placeholder="Straße"
+                v-model="childCustomerInformation.street"
+                required
+              />
             </div>
             <div class="col-3">
-              <div class="align-items-center justify-content-center">
-                <input
-                  type="text"
-                  class="form-control rounded-5"
-                  id="streetNumber"
-                  placeholder="Nr."
-                  v-model="childCustomerInformation.streetNumber"
-                  required
-                />
-              </div>
+              <input
+                type="text"
+                class="form-control rounded-5"
+                id="streetNumber"
+                placeholder="Nr."
+                v-model="childCustomerInformation.streetNumber"
+                required
+              />
             </div>
           </div>
         </div>
@@ -119,27 +105,23 @@
       <div class="row">
         <div class="row m-0 p-0 pb-3">
           <div class="col">
-            <div class="align-items-center justify-content-center">
-              <select
-                id="crisisArea"
-                class="form-select rounded-5"
-                v-model="childCustomerInformation.crisisArea"
-                required
-              >
-                <option value="" selected disabled>Krisengebiet wählen</option>
-                <option value="der Ukraine">Ukraine</option>
-                <option value="Syrien">Syrien</option>
-                <option value="Israel">Israel</option>
-                <option value="Afghanistan">Afghanistan</option>
-                <option value="Mali">Mali</option>
-              </select>
-            </div>
+            <select
+              id="crisisArea"
+              class="form-select rounded-5"
+              v-model="childCustomerInformation.crisisArea"
+              required
+            >
+              <option value="" selected disabled>Krisengebiet wählen</option>
+              <option value="der Ukraine">Ukraine</option>
+              <option value="Syrien">Syrien</option>
+              <option value="Israel">Israel</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Mali">Mali</option>
+            </select>
           </div>
         </div>
       </div>
-      <div class="pt-3">
-        <AddOrRemoveDonationButtons @add="addDonation" @remove="removeDonation" />
-      </div>
+      <AddOrRemoveDonationButtons @add="addDonation" @remove="removeDonation" />
     </div>
   </div>
 </template>
@@ -173,6 +155,7 @@ export default {
     },
   },
   data() {
+    //Creating child data because mutating props can cause unexpected behaviour
     return {
       childCustomerInformation: {
         firstName: this.customerInformation.firstName,
@@ -186,6 +169,10 @@ export default {
       },
       isValidZipCode: true,
     };
+  },
+  //Call necessary methods after page has been built
+  created() {
+    this.preLoadImages();
   },
   watch: {
     childCustomerInformation: {
@@ -207,6 +194,16 @@ export default {
         this.isValidZipCode = true;
       }
     },
+    //Preload images to reduce loading latency
+    preLoadImages() {
+      const images = [require("@/assets/PickUp.png"), require("@/assets/DropOff.png")];
+      for (const imagePath of images) {
+        const image = new Image();
+        image.src = imagePath;
+      }
+    },
   },
 };
 </script>
+
+

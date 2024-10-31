@@ -8,7 +8,6 @@
       </div>
     </div>
     <div class="col">
-      <div class="d-flex align-items-center justify-content-center"></div>
       <button type="button" class="btn btn-success w-75" @click="$emit('add')">
         <i class="bi bi-plus-square"></i>
       </button>

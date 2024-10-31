@@ -1,34 +1,31 @@
 <template>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col d-flex justify-content-center align-items-center">
-        <h1 class="text-center">Danke für Ihre Hilfe!</h1>
-      </div>
+  <div class="row text-center mt-5">
+    <h1>Danke für deine Hilfe!</h1>
+  </div>
+  <div class="row justify-content-center p-5">
+    <img src="@/assets/Confirmation.png" />
+  </div>
+  <div class="row text-center fs-5">
+    <div class="justify-content-center">
+      Die Spende wurde erfolgreich angenommen und leistet wertvolle Hilfe für die Menschen
+      in {{ customerInformation.crisisArea }}.
     </div>
-    <div class="row">
-      <div class="col d-flex justify-content-center align-items-center m-3">
-        <img src="@/assets/Confirmation.png" class="img-fluid" alt="" />
-      </div>
+  </div>
+  <div class="row my-5 justify-content-center text-center fs-5">
+    <div class="col-12 col-sm-10 col-lg-6">
+      <ConfirmRegistrationCustomerInformationCard
+        :donation-mode="donationMode"
+        :customer-information="customerInformation"
+        :donations="donations"
+      />
     </div>
-    <div class="row mb-3">
-      <div class="col d-flex justify-content-center align-items-center text-center fs-5">
-        Die Spende wurde erfolgreich angenommen und leistet wertvolle Hilfe für die
-        Menschen in {{ customerInformation.crisisArea }}.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex justify-content-center align-items-center text-center fs-5">
-        <ConfirmRegistrationCustomerInformationCard
-          :donation-mode="donationMode"
-          :customer-information="customerInformation"
-          :donations="donations"
-        />
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col d-flex justify-content-center align-items-center text-center fs-5">
-        Ihre Auftragsbestätigung erhalten sie von uns in Kürze per E-mail
-      </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="text-center fs-5">
+      Die Auftragsbestätigung senden wir in Kürze an
+      <strong>{{ customerInformation.email }}</strong
+      >.
     </div>
   </div>
 </template>
@@ -58,4 +55,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+img {
+  max-width: 150px;
+}
+</style>

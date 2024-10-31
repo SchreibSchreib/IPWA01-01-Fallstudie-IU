@@ -1,130 +1,50 @@
 <template>
-  <div class="row justify-content-center pb-3 w-100">
-    <div class="card border-info border-5 pt-1 pb-1 d-none d-sm-block w-auto mx-auto">
-      <div class="row">
-        <h5 class="col d-flex justify-content-center fs-3 mx-3">
-          Ihre Daten im Überblick
-        </h5>
-      </div>
-      <div class="row">
-        <div
-          class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-        >
-          Name:
-        </div>
-        <div class="col d-flex justify-content-end mx-3 text-nowrap">
-          {{ customerInformation.firstName }} {{ customerInformation.lastName }}
-        </div>
-      </div>
-      <div class="row">
-        <div
-          class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-        >
-          E-Mail:
-        </div>
-        <div class="col d-flex justify-content-end mx-3 text-nowrap">
-          {{ customerInformation.email }}
-        </div>
-      </div>
-      <div v-if="donationMode === 'TakeUp'">
-        <div class="row">
-          <div
-            class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-          >
-            Straße:
-          </div>
-          <div class="col d-flex justify-content-end mx-3 text-nowrap">
-            {{ customerInformation.street }}
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-          >
-            PLZ:
-          </div>
-          <div class="col d-flex justify-content-end mx-3 text-nowrap">
-            {{ customerInformation.zipCode }}
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-          >
-            Stadt:
-          </div>
-          <div class="col d-flex justify-content-end mx-3 text-nowrap">
-            {{ customerInformation.city }}
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div
-          class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-        >
-          Datum:
-        </div>
-        <div class="col d-flex justify-content-end mx-3 text-nowrap">{{ date }}</div>
-      </div>
-      <div class="row">
-        <div
-          class="col d-flex justify-content-start text-uppercase text-muted fw-bold mx-3"
-        >
-          Uhrzeit:
-        </div>
-        <div class="col d-flex justify-content-end mx-3 text-nowrap">{{ time }}</div>
-        <div class="mb-2">
-        <h5 class="col d-flex justify-content-center fs-3 mx-3">Getätigte Spenden</h5>
-      </div>
-      <div v-for="donation in donations" :key="donation">
-        <div class="mb-3">
-          <div class="text-muted  fw-bold"> {{ donation.quantity }}x {{donation.clothing}}</div>
-          <div></div>
-        </div>
-      </div>
+  <div class="container bg-light text-muted rounded-4 border p-3">
+    <h2>Alle Daten im Überblick</h2>
+    <div class="row">
+      <div class="col d-flex justify-content-start text-muted fw-bold ms-3">Name:</div>
+      <div class="col d-flex justify-content-end me-3 text-nowrap">
+        {{ customerInformation.firstName }} {{ customerInformation.lastName }}
       </div>
     </div>
-    <div class="card border-info border-5 pt-1 pb-1 d-sm-none">
-      <h5 class="col d-flex justify-content-center fs-3 mx-3">Ihre Daten im Überblick</h5>
-      <div class="mb-2">
-        <div class="text-muted text-uppercase fw-bold">Name</div>
-        <div>{{ customerInformation.firstName }} {{ customerInformation.lastName }}</div>
+    <div v-if="donationMode === 'TakeUp'" class="row">
+      <div class="col d-flex justify-content-start fw-bold ms-3">Straße:</div>
+      <div class="col d-flex justify-content-end me-3 text-nowrap">
+        {{ customerInformation.street }} {{ customerInformation.streetNumber }}
       </div>
-      <div class="mb-2">
-        <div class="text-muted text-uppercase fw-bold">E-Mail</div>
-        <div>{{ customerInformation.email }}</div>
+    </div>
+    <div v-if="donationMode === 'TakeUp'" class="row">
+      <div class="col d-flex justify-content-start fw-bold ms-3">PLZ:</div>
+      <div class="col d-flex justify-content-end me-3 text-nowrap">
+        {{ customerInformation.zipCode }}
       </div>
-      <div v-if="donationMode === 'TakeUp'">
-        <div class="mb-2">
-          <div class="text-muted text-uppercase fw-bold">Straße</div>
-          <div>
-            {{ customerInformation.street }} {{ customerInformation.streetNumber }}
-          </div>
-        </div>
-        <div class="mb-2">
-          <div class="text-muted text-uppercase fw-bold">Postleitzahl</div>
-          <div>{{ customerInformation.zipCode }}</div>
-        </div>
-        <div class="mb-2">
-          <div class="text-muted text-uppercase fw-bold">Stadt</div>
-          <div>{{ customerInformation.city }}</div>
-        </div>
+    </div>
+    <div v-if="donationMode === 'TakeUp'" class="row">
+      <div class="col d-flex justify-content-start fw-bold ms-3">Stadt:</div>
+      <div class="col d-flex justify-content-end me-3 text-nowrap">
+        {{ customerInformation.city }}
       </div>
-      <div class="mb-2">
-        <div class="text-muted text-uppercase fw-bold">Datum</div>
-        <div>{{ date }}</div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-start fw-bold ms-3">Datum:</div>
+      <div class="col d-flex justify-content-end me-3 text-nowrap">
+        {{ date }}
       </div>
-      <div class="mb-3">
-        <div class="text-muted text-uppercase fw-bold">Uhrzeit</div>
-        <div>{{ time }}</div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-start fw-bold ms-3">Uhrzeit:</div>
+      <div class="col d-flex justify-content-end me-3 text-nowrap">
+        {{ time }}
       </div>
-      <div class="mb-2">
-        <h5 class="col d-flex justify-content-center fs-3 mx-3">Getätigte Spenden</h5>
-      </div>
-      <div v-for="donation in donations" :key="donation">
-        <div class="mb-3">
-          <div class="text-muted  fw-bold"> {{ donation.quantity }}x {{donation.clothing}}</div>
-          <div></div>
+    </div>
+    <div class="row">
+      <h5 class="fs-3 mt-2 mx-3">Getätigte Spenden</h5>
+    </div>
+    <hr class="mt-2" />
+    <div v-for="donation in donations" :key="donation">
+      <div class="mb-1">
+        <div class="text-muted fs-5">
+          {{ donation.quantity }}x {{ donation.clothing }}
         </div>
       </div>
     </div>
@@ -158,3 +78,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.bg-light {
+  background: linear-gradient(90deg, #ffd3a590, #eb083980);
+}
+</style>

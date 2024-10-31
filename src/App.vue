@@ -4,7 +4,9 @@
       <AppHeader />
     </header>
     <main>
-      <router-view />
+      <div class="container">
+        <router-view />
+      </div>
     </main>
     <footer class="mt-auto">
       <AppFooter />

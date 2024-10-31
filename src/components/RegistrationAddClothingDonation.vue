@@ -1,30 +1,28 @@
 <template>
-  <div class="row text-justify p-3 mb-5 fs-5">
-    <div class="container pb-2">
-      <select
-        class="form-select fs-5"
-        v-model="selectedClothing"
-        @change="sendDonationData"
-        required
-      >
-        <option value="" selected disabled>Kleidungsstück wählen</option>
-        <option value="Jacke">Jacke</option>
-        <option value="Pullover">Pullover</option>
-        <option value="T-Shirt">T-Shirt</option>
-        <option value="Hose">Hose</option>
-      </select>
-    </div>
-    <label for="customRange2" class="form-label">Anzahl: {{ numberOfArticles }}</label>
-    <input
-      type="range"
-      class="form-range"
-      min="1"
-      max="10"
-      id="numberOfArticles"
-      v-model="numberOfArticles"
-      @input="sendDonationData"
-    />
+  <div class="fs-5">
+    <select
+      class="form-select"
+      v-model="selectedClothing"
+      @change="sendDonationData"
+      required
+    >
+      <option value="" selected disabled>Kleidungsstück wählen</option>
+      <option value="Jacke">Jacke</option>
+      <option value="Pullover">Pullover</option>
+      <option value="T-Shirt">T-Shirt</option>
+      <option value="Hose">Hose</option>
+    </select>
   </div>
+  <label for="customRange2" class="form-label fs-5 mt-2">Anzahl: {{ numberOfArticles }}</label>
+  <input
+    type="range"
+    class="form-range mb-3"
+    min="1"
+    max="10"
+    id="numberOfArticles"
+    v-model="numberOfArticles"
+    @input="sendDonationData"
+  />
 </template>
 
 <script>

@@ -2,17 +2,15 @@
   <div class="p-2">
     <button
       type="button"
-      class="btn btn-primary w-100 mb-2"
+      class="btn btn-primary w-100 mb-1"
       @click="switchMode('TakeUp')"
-      to="/"
     >
       Abholung
     </button>
     <button
       type="button"
-      class="btn btn-primary w-100"
+      class="btn btn-primary w-100 mt-1"
       @click="switchMode('DropOff')"
-      to="/"
     >
       Übergabe an der Geschäftstelle
     </button>
@@ -34,5 +32,10 @@ export default {
 .btn {
   background-color: #a153d8;
   border: 0;
+}
+
+.btn:active,
+.btn:focus {
+  background-color: #8947b8;
 }
 </style>

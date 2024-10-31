@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
     <RegistrationContent :donationMode="selectedMode" @mode-change="updateMode" />
-  </div>
 </template>
 
 <script>
