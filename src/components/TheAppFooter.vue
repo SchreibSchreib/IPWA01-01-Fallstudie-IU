@@ -1,28 +1,42 @@
 <template>
   <div class="container-fluid fs-5">
     <div class="row text-center">
-      <RouterLink type="button" class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
-        to="/">Twitter
+      <RouterLink
+        type="button"
+        class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
+        to="/"
+        >Twitter
         <i class="bi bi-twitter"></i>
       </RouterLink>
-      <RouterLink type="button" class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
-        to="/">
+      <RouterLink
+        type="button"
+        class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
+        to="/"
+      >
         Facebook
         <i class="bi bi-facebook"></i>
       </RouterLink>
-      <RouterLink type="button" class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
-        to="/imprint">
+      <RouterLink
+        type="button"
+        class="btn btn-secondary border-bottom-0 border-dark btn-lg m-0 rounded-0 d-sm-none"
+        to="/imprint"
+      >
         Impressum
       </RouterLink>
-      <RouterLink type="button" class="btn btn-secondary border border-dark btn-lg m-0 rounded-0 d-sm-none"
-        to="/data-privacy">
+      <RouterLink
+        type="button"
+        class="btn btn-secondary border border-dark btn-lg m-0 rounded-0 d-sm-none"
+        to="/data-privacy"
+      >
         Datenschutz
       </RouterLink>
       <div class="col-sm p-0 d-none d-sm-block">
-        <RouterLink class="nav-link" to="/">Twitter
+        <RouterLink class="nav-link" to="/"
+          >Twitter
           <i class="bi bi-twitter"></i>
         </RouterLink>
-        <RouterLink class="nav-link" to="/">Facebook
+        <RouterLink class="nav-link" to="/"
+          >Facebook
           <i class="bi bi-facebook"></i>
         </RouterLink>
       </div>
@@ -40,7 +54,7 @@
 
 <script>
 export default {
-  name: "AppFooter",
+  name: "TheAppFooter",
 };
 </script>
 

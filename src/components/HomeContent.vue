@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col-lg-8 py-5">
+    <div class="col-lg-9 py-5">
       <h2>Herzlich willkommen bei WärmeSpenden</h2>
       <hr class="my-3" />
       <p class="fs-5">
@@ -14,17 +14,30 @@
           <li>
             <strong>Kleider spenden:</strong>
             Du hast Kleidung, die du nicht mehr benötigst? Wir freuen uns über jede
-            Spende! Du kannst deine gespendete Kleidung direkt zu unserer Geschäftsstelle
-            bringen oder unseren Abholservice nutzen, wenn du in der Nähe wohnst. (Bitte
-            achte darauf, dass die ersten zwei Ziffern deiner Postleitzahl mit denen
-            unserer Geschäftsstelle übereinstimmen, um die Abholung zu ermöglichen.)
+            Spende! Die Kleidung kannst du direkt zu unserer Geschäftsstelle bringen.
           </li>
+          <br />
+          <li>
+            <strong>Abholservice nutzen:</strong>
+            Solltest du in unserer Nähe wohnen, kannst du auch ganz bequem unseren
+            Abholservice nutzen. Gleiche dazu bitte die ersten zwei Zahlen deiner
+            Postleitzahl mit denen unserer Geschäftsstelle ab.
+          </li>
+          <br />
+          <li>
+            <strong>Spendenziel festlegen:</strong>
+            Entscheide selbst, wohin deine Spende fließen soll. Wir arbeiten mit
+            zahlreichen Partnern zusammen, welche in verschiedenen Ländern aktiv sind. Gib
+            bei deiner Spendenregistrierung einfach an, in welches Land deine Spende gehen
+            soll.
+          </li>
+          <br />
           <li>
             <strong>Warum spenden?</strong>
-            In vielen Regionen sind Menschen auf Unterstützung angewiesen. Oft fehlt es an
-            grundlegenden Dingen wie zum Beispiel warmer Kleidung. Deine Spende kann nicht nur die
-            Lebensumstände dieser Menschen verbessern, sondern auch Hoffnung und
-            Solidarität vermitteln.
+            In zahlreichen Regionen sind Menschen auf Hilfe angewiesen und haben oft nicht
+            einmal Zugang zu den grundlegendsten Dingen wie beispielsweise warme Kleidung. Deine Spende kann 
+            dazu beitragen, die dringend benötigte Hilfe in Krisengebieten bereitzustellen
+            und den Menschen dort ein wenig Wärme zu schenken.
           </li>
         </ul>
       </div>

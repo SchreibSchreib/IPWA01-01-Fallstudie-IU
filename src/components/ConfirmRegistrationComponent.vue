@@ -7,12 +7,14 @@
   </div>
   <div class="row text-center fs-5">
     <div class="justify-content-center">
-      Die Spende wurde erfolgreich angenommen und leistet wertvolle Hilfe für die Menschen
-      in {{ customerInformation.crisisArea }}.
+      <h3>
+        Die Spende wurde erfolgreich angenommen und leistet wertvolle Hilfe für die
+        Menschen in {{ customerInformation.crisisArea }}.
+      </h3>
     </div>
   </div>
   <div class="row my-5 justify-content-center text-center fs-5">
-    <div class="col-12 col-sm-10 col-lg-6">
+    <div class="col-12 col-sm-11 col-lg-7">
       <ConfirmRegistrationCustomerInformationCard
         :donation-mode="donationMode"
         :customer-information="customerInformation"
@@ -23,9 +25,11 @@
 
   <div class="row mb-3">
     <div class="text-center fs-5">
-      Die Auftragsbestätigung senden wir in Kürze an
-      <strong>{{ customerInformation.email }}</strong
-      >.
+      <h5>
+        Die Auftragsbestätigung senden wir in Kürze an
+        <strong>{{ customerInformation.email }}</strong
+        >.
+      </h5>
     </div>
   </div>
 </template>
