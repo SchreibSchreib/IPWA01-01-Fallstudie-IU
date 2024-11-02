@@ -1,44 +1,44 @@
 <template>
-  <div class="container bg-light text-muted rounded-4 border p-3">
+  <div class="container bg-light text-muted rounded-4 border p-4">
     <h2>Alle Daten im Überblick</h2>
-    <div class="row">
-      <div class="col-2 d-flex justify-content-start text-muted fw-bold ms-2">Name:</div>
-      <div class="col d-flex justify-content-end me-2">
+    <div class="row ">
+      <div class="col-12 col-sm text-center text-sm-start fw-bold">Name:</div>
+      <div class="col-12 col-sm text-center text-sm-end">
         {{ customerInformation.firstName }} {{ customerInformation.lastName }}
       </div>
     </div>
     <div v-if="donationMode === 'TakeUp'" class="row">
-      <div class="col-2 d-flex justify-content-start fw-bold ms-2">Straße:</div>
-      <div class="col d-flex justify-content-end me-2">
+      <div class="col-12 col-sm text-center text-sm-start fw-bold">Straße:</div>
+      <div class="col-12 col-sm text-center text-sm-end">
         {{ customerInformation.street }} {{ customerInformation.streetNumber }}
       </div>
     </div>
     <div v-if="donationMode === 'TakeUp'" class="row">
-      <div class="col-2 d-flex justify-content-start fw-bold ms-2">PLZ:</div>
-      <div class="col d-flex justify-content-end me-2">
+      <div class="col-12 col-sm text-center text-sm-start fw-bold">PLZ:</div>
+      <div class="col-12 col-sm text-center text-sm-end">
         {{ customerInformation.zipCode }}
       </div>
     </div>
     <div v-if="donationMode === 'TakeUp'" class="row">
-      <div class="col-2 d-flex justify-content-start fw-bold ms-2">Stadt:</div>
-      <div class="col d-flex justify-content-end me-2">
+      <div class="col-12 col-sm text-center text-sm-start fw-bold">Stadt:</div>
+      <div class="col-12 col-sm text-center text-sm-end">
         {{ customerInformation.city }}
       </div>
     </div>
     <div class="row">
-      <div class="col-2 d-flex justify-content-start fw-bold ms-2">Datum:</div>
-      <div class="col d-flex justify-content-end me-2">
+      <div class="col-12 col-sm text-center text-sm-start fw-bold">Datum:</div>
+      <div class="col-12 col-sm text-center text-sm-end">
         {{ date }}
       </div>
     </div>
     <div class="row">
-      <div class="col-2 d-flex justify-content-start fw-bold ms-2">Uhrzeit:</div>
-      <div class="col d-flex justify-content-end me-2">
+      <div class="col-12 col-sm text-center text-sm-start fw-bold">Uhrzeit:</div>
+      <div class="col-12 col-sm text-center text-sm-end">
         {{ time }}
       </div>
     </div>
     <div class="row">
-      <h5 class="fs-3 mt-2 mx-3">Getätigte Spenden</h5>
+      <h5 class="fs-3 mt-2">Getätigte Spenden</h5>
     </div>
     <hr class="mt-2" />
     <div v-for="donation in donations" :key="donation">

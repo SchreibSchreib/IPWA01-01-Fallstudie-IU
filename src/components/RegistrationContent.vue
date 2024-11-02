@@ -15,8 +15,8 @@
         :customerInformation="customerInformation"
         :addDonation="addDonation"
         :removeDonation="removeDonation"
-        @mode-change="handleModeChange"
-        @update:customerInformation="updateCustomerInformation"
+        @mode-change="changeMode"
+        @update:customer-information="updateCustomerInformation"
       />
       <button class="btn btn-success mb-3" type="submit">Spende abschicken</button>
       <div v-for="donationNumber in numberOfDonations" :key="donationNumber">
@@ -39,63 +39,45 @@ export default {
     AddClothingDonation,
     CustomerInformationMask,
   },
-  data() {
-    return {
-      numberOfDonations: 1,
-      customerInformation: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        zipCode: null,
-        city: "",
-        street: "",
-        streetNumber: "",
-        crisisArea: "",
-      },
-      donations: [],
-    };
-  },
-  methods: {
-    addDonation() {
-      this.numberOfDonations++;
-    },
-    removeDonation() {
-      if (this.numberOfDonations > 1) {
-        this.numberOfDonations--;
-      }
-    },
-    handleModeChange(newMode) {
-      this.$emit("mode-change", newMode);
-    },
-    updateCustomerInformation(updatedInfo) {
-      this.customerInformation = updatedInfo;
-    },
-    updateDonation(donationData) {
-      this.donations[donationData.index] = {
-        clothing: donationData.clothing,
-        quantity: donationData.quantity,
-      };
-    },
-    handleSubmit() {
-      console.log("Kundendaten: ", this.customerInformation);
-      console.log("Spenden: ", this.donations);
-      sessionStorage.setItem(
-        "donationData",
-        JSON.stringify({
-          donationMode: this.donationMode,
-          customerInformation: this.customerInformation,
-          donations: this.donations,
-        })
-      );
-      this.$router.push({
-        path: "/confirmation",
-      });
-    },
-  },
   props: {
+    customerInformation: {
+      type: Object,
+      required: true,
+    },
     donationMode: {
       type: String,
       required: true,
+    },
+    numberOfDonations: {
+      type: Number,
+      required: true,
+    },
+    donations: {
+      type: Array,
+      required: true,
+    },
+  },
+
+  methods: {
+    removeDonation() {
+      if (this.numberOfDonations > 1) {
+        this.$emit("update:number-of-donations", this.numberOfDonations - 1);
+      }
+    },
+    addDonation() {
+      this.$emit("update:number-of-donations", this.numberOfDonations + 1);
+    },
+    changeMode(newMode) {
+      this.$emit("update:mode", newMode);
+    },
+    updateCustomerInformation(updatedInfo) {
+      this.$emit("update:customer-information", updatedInfo);
+    },
+    updateDonation(donationData) {
+      this.$emit("update:donation", donationData);
+    },
+    handleSubmit() {
+      this.$emit("handle-submit");
     },
   },
 };

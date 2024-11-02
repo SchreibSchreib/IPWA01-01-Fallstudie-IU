@@ -24,7 +24,7 @@
             class="form-control rounded-5"
             id="firstName"
             placeholder="Vorname"
-            v-model="childCustomerInformation.firstName"
+            @blur="updateField('firstName', $event.target.value)"
             required
           />
         </div>
@@ -34,7 +34,7 @@
             class="form-control rounded-5"
             id="lastName"
             placeholder="Nachname"
-            v-model="childCustomerInformation.lastName"
+            @blur="updateField('lastName', $event.target.value)"
             required
           />
         </div>
@@ -45,7 +45,7 @@
               class="form-control rounded-5"
               id="email"
               placeholder="Email"
-              v-model="childCustomerInformation.email"
+              @blur="updateField('email', $event.target.value)"
               required
             />
           </div>
@@ -59,8 +59,10 @@
               class="form-control rounded-5"
               id="zipCode"
               placeholder="PLZ"
-              v-model="childCustomerInformation.zipCode"
-              @input="validateZipCode"
+              @blur="
+                updateField('zipCode', $event.target.value);
+                validateZipCode();
+              "
               :class="{ 'is-invalid': !isValidZipCode }"
               required
             />
@@ -74,7 +76,7 @@
               class="form-control rounded-5"
               id="city"
               placeholder="Stadt"
-              v-model="childCustomerInformation.city"
+              @blur="updateField('city', $event.target.value)"
               required
             />
           </div>
@@ -85,7 +87,7 @@
                 class="form-control rounded-5"
                 id="street"
                 placeholder="Straße"
-                v-model="childCustomerInformation.street"
+                @blur="updateField('street', $event.target.value)"
                 required
               />
             </div>
@@ -95,7 +97,7 @@
                 class="form-control rounded-5"
                 id="streetNumber"
                 placeholder="Nr."
-                v-model="childCustomerInformation.streetNumber"
+                @blur="updateField('streetNumber', $event.target.value)"
                 required
               />
             </div>
@@ -108,7 +110,7 @@
             <select
               id="crisisArea"
               class="form-select rounded-5"
-              v-model="childCustomerInformation.crisisArea"
+              @blur="updateField('crisisArea', $event.target.value)"
               required
             >
               <option value="" selected disabled>Krisengebiet wählen</option>
@@ -132,11 +134,11 @@ import SwitchRegistrationModeButton from "./RegistrationSwitchRegistrationModeBu
 
 export default {
   name: "CustomerInformationMask",
-  components: {
-    AddOrRemoveDonationButtons,
-    SwitchRegistrationModeButton,
-  },
   props: {
+    customerInformation: {
+      type: Object,
+      required: true,
+    },
     donationMode: {
       type: String,
       required: true,
@@ -149,52 +151,16 @@ export default {
       type: Function,
       required: true,
     },
-    customerInformation: {
-      type: Object,
-      required: true,
-    },
   },
   data() {
-    //Creating child data because mutating props can cause unexpected behaviour
     return {
-      childCustomerInformation: {
-        firstName: this.customerInformation.firstName,
-        lastName: this.customerInformation.lastName,
-        email: this.customerInformation.email,
-        zipCode: this.customerInformation.zipCode,
-        city: this.customerInformation.city,
-        street: this.customerInformation.street,
-        streetNumber: this.customerInformation.streetNumber,
-        crisisArea: this.customerInformation.crisisArea,
-      },
       isValidZipCode: true,
     };
   },
-  //Call necessary methods after page has been built
   created() {
     this.preLoadImages();
   },
-  watch: {
-    childCustomerInformation: {
-      deep: true,
-      handler(newVal) {
-        this.$emit("update:customerInformation", newVal);
-      },
-    },
-  },
   methods: {
-    handleModeChange(newMode) {
-      this.$emit("mode-change", newMode);
-    },
-    validateZipCode() {
-      const enteredZipCode = this.childCustomerInformation.zipCode.toString();
-      if (!(enteredZipCode.length === 5 && enteredZipCode.substring(0, 2) === "39")) {
-        this.isValidZipCode = false;
-      } else {
-        this.isValidZipCode = true;
-      }
-    },
-    //Preload images to reduce loading latency
     preLoadImages() {
       const images = [require("@/assets/PickUp.png"), require("@/assets/DropOff.png")];
       for (const imagePath of images) {
@@ -202,8 +168,23 @@ export default {
         image.src = imagePath;
       }
     },
+    updateField(field, value) {
+      this.$emit("update:customer-information", {
+        [field]: value,
+      });
+    },
+    handleModeChange(newMode) {
+      this.$emit("mode-change", newMode);
+    },
+    validateZipCode() {
+      const enteredZipCode = this.customerInformation.zipCode.toString();
+      this.isValidZipCode =
+        enteredZipCode.length === 5 && enteredZipCode.startsWith("39");
+    },
+  },
+  components: {
+    AddOrRemoveDonationButtons,
+    SwitchRegistrationModeButton,
   },
 };
 </script>
-
-

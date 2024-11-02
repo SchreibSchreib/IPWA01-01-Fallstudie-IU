@@ -35,9 +35,10 @@
           <li>
             <strong>Warum spenden?</strong>
             In zahlreichen Regionen sind Menschen auf Hilfe angewiesen und haben oft nicht
-            einmal Zugang zu den grundlegendsten Dingen wie beispielsweise warme Kleidung. Deine Spende kann 
-            dazu beitragen, die dringend benötigte Hilfe in Krisengebieten bereitzustellen
-            und den Menschen dort ein wenig Wärme zu schenken.
+            einmal Zugang zu den grundlegendsten Dingen wie beispielsweise warme Kleidung.
+            Deine Spende kann dazu beitragen, die dringend benötigte Hilfe in
+            Krisengebieten bereitzustellen und den Menschen dort ein wenig Wärme zu
+            schenken.
           </li>
         </ul>
       </div>
