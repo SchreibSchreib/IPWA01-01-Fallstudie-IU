@@ -1,17 +1,9 @@
 <template>
   <div class="p-2">
-    <button
-      type="button"
-      class="btn btn-primary w-100 mb-1"
-      @click="switchMode('TakeUp')"
-    >
+    <button type="button" class="btn btn-primary w-100 mb-1" @click="switchMode('TakeUp')">
       Abholung
     </button>
-    <button
-      type="button"
-      class="btn btn-primary w-100 mt-1"
-      @click="switchMode('DropOff')"
-    >
+    <button type="button" class="btn btn-primary w-100 mt-1" @click="switchMode('DropOff')">
       Übergabe an der Geschäftstelle
     </button>
   </div>

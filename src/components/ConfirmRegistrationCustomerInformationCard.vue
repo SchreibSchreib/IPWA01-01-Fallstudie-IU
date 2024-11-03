@@ -1,7 +1,7 @@
 <template>
   <div class="container bg-light text-muted rounded-4 border p-4">
     <h2>Alle Daten im Überblick</h2>
-    <div class="row ">
+    <div class="row">
       <div class="col-12 col-sm text-center text-sm-start fw-bold">Name:</div>
       <div class="col-12 col-sm text-center text-sm-end">
         {{ customerInformation.firstName }} {{ customerInformation.lastName }}
@@ -54,7 +54,6 @@
 <script>
 export default {
   name: "ConfirmRegistrationCustomerInformationCard",
-  components: {},
   props: {
     donationMode: {
       type: String,
@@ -72,6 +71,7 @@ export default {
   data() {
     const currentDate = new Date();
     return {
+      //Returns date and timestamp on german format
       date: currentDate.toLocaleDateString("de-DE"),
       time: currentDate.toLocaleTimeString("de-DE"),
     };

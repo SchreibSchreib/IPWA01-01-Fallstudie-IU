@@ -9,28 +9,36 @@
 </template>
 
 <script>
-import ConfirmRegistrationComponent from "@/components/ConfirmRegistrationComponent.vue";
+import ConfirmRegistrationContent from "@/components/ConfirmRegistrationContent.vue";
+
+//Declared outside of the component to make
+//method available for "beforeRouteEnter"
+function getStoredDonationData() {
+  return JSON.parse(sessionStorage.getItem("donationData") || "{}");
+}
 
 export default {
   name: "ConfirmRegistation",
-  components: {
-    ConfirmRegistrationComponent,
-  },
   data() {
-    const donationData = JSON.parse(sessionStorage.getItem("donationData") || "{}");
+    const donationData = getStoredDonationData();
     return {
       donationMode: donationData.donationMode,
       customerInformation: donationData.customerInformation,
       donations: donationData.donations,
     };
   },
+  //Looks for "storedDonationData in the current session
+  //Redirects to "HomeView" if there is none
   beforeRouteEnter(to, from, next) {
-    const donationData = JSON.parse(sessionStorage.getItem("donationData") || "{}");
+    const donationData = getStoredDonationData();
     if (donationData.donations) {
       next();
     } else {
-      next({ path: "/registration" });
+      next({ path: "/" });
     }
+  },
+  components: {
+    ConfirmRegistrationComponent: ConfirmRegistrationContent,
   },
 };
 </script>

@@ -123,7 +123,7 @@
           </div>
         </div>
       </div>
-      <AddOrRemoveDonationButtons @add="addDonation" @remove="removeDonation" />
+      <AddOrRemoveDonationButtons @update:donation-mask="updateDonationMask" />
     </div>
   </div>
 </template>
@@ -143,14 +143,6 @@ export default {
       type: String,
       required: true,
     },
-    addDonation: {
-      type: Function,
-      required: true,
-    },
-    removeDonation: {
-      type: Function,
-      required: true,
-    },
   },
   data() {
     return {
@@ -161,13 +153,6 @@ export default {
     this.preLoadImages();
   },
   methods: {
-    preLoadImages() {
-      const images = [require("@/assets/PickUp.png"), require("@/assets/DropOff.png")];
-      for (const imagePath of images) {
-        const image = new Image();
-        image.src = imagePath;
-      }
-    },
     updateField(field, value) {
       this.$emit("update:customer-information", {
         [field]: value,
@@ -176,6 +161,19 @@ export default {
     handleModeChange(newMode) {
       this.$emit("mode-change", newMode);
     },
+    updateDonationMask(donationMaskData) {
+      this.$emit("update:donation-mask", donationMaskData);
+    },
+    //Preload images to reduce latency
+    //after first image switch
+    preLoadImages() {
+      const images = [require("@/assets/PickUp.png"), require("@/assets/DropOff.png")];
+      for (const imagePath of images) {
+        const image = new Image();
+        image.src = imagePath;
+      }
+    },
+    //Boolean for zipcode validation
     validateZipCode() {
       const enteredZipCode = this.customerInformation.zipCode.toString();
       this.isValidZipCode =

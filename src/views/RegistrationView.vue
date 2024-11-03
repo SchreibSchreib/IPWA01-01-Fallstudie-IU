@@ -5,9 +5,9 @@
     :numberOfDonations="numberOfDonations"
     :donations="donations"
     @update:mode="updateMode"
-    @update:number-of-donations="updateNumberOfDonations"
     @update:customer-information="updateCustomerInformation"
     @update:donation="updateDonations"
+    @update:donation-mask="updateDonationMask"
     @handle-submit="handleSubmit"
   />
 </template>
@@ -17,9 +17,6 @@ import RegistrationContent from "@/components/RegistrationContent.vue";
 
 export default {
   name: "RegistrationView",
-  components: {
-    RegistrationContent,
-  },
   data() {
     return {
       customerInformation: {
@@ -41,23 +38,44 @@ export default {
     updateMode(newMode) {
       this.donationMode = newMode;
     },
-    updateNumberOfDonations(newNumber) {
-      this.numberOfDonations = newNumber;
-    },
     updateCustomerInformation(updatedField) {
       const key = Object.keys(updatedField)[0];
       const value = updatedField[key];
       this.customerInformation[key] = value;
     },
+    updateDonationMask(donationMaskData) {
+      if (donationMaskData === "add") {
+        console.log("Added donationmask");
+        this.addDonation();
+      } else {
+        console.log("Removed donationmask");
+        this.removeDonation();
+      }
+    },
     updateDonations(donationData) {
+      console.log("Updated Donation");
       this.donations[donationData.index] = {
         clothing: donationData.clothing,
         quantity: donationData.quantity,
       };
     },
+    addDonation() {
+      this.numberOfDonations++;
+    },
+    removeDonation() {
+      if (this.numberOfDonations > 1) {
+        this.numberOfDonations--;
+      }
+    },
     handleSubmit() {
       console.log("Kundendaten: ", this.customerInformation);
       console.log("Spenden: ", this.donations);
+      this.saveData();
+      this.$router.push({
+        path: "/confirmation",
+      });
+    },
+    saveData() {
       sessionStorage.setItem(
         "donationData",
         JSON.stringify({
@@ -66,10 +84,10 @@ export default {
           donations: this.donations,
         })
       );
-      this.$router.push({
-        path: "/confirmation",
-      });
     },
+  },
+  components: {
+    RegistrationContent,
   },
 };
 </script>

@@ -13,7 +13,7 @@
       <option value="Hose">Hose</option>
     </select>
   </div>
-  <label for="customRange2" class="form-label fs-5 mt-2">Anzahl: {{ numberOfArticles }}</label>
+  <label class="form-label fs-5 mt-2">Anzahl: {{ numberOfArticles }}</label>
   <input
     type="range"
     class="form-range mb-3"
@@ -21,7 +21,7 @@
     max="10"
     id="numberOfArticles"
     v-model="numberOfArticles"
-    @input="sendDonationData"
+    @change="sendDonationData"
   />
 </template>
 
@@ -38,8 +38,10 @@ export default {
     };
   },
   methods: {
+    //Emits changed data to parent
+    //after a Value has been changed
     sendDonationData() {
-      this.$emit("update-donation", {
+      this.$emit("update:donation", {
         index: this.index,
         clothing: this.selectedClothing,
         quantity: this.numberOfArticles,
