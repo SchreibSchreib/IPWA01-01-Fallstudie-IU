@@ -16,7 +16,7 @@
   <label class="form-label fs-5 mt-2">Anzahl: {{ numberOfArticles }}</label>
   <input
     type="range"
-    class="form-range mb-3"
+    class="form-range mb-3 px-4"
     min="1"
     max="10"
     id="numberOfArticles"
