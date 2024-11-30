@@ -39,6 +39,7 @@ export default {
       this.donationMode = newMode;
     },
     updateCustomerInformation(updatedField) {
+      console.log("Updated CustomerInformation")
       const key = Object.keys(updatedField)[0];
       const value = updatedField[key];
       this.customerInformation[key] = value;
