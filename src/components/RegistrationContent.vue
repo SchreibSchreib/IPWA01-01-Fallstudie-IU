@@ -23,13 +23,13 @@
           @update:customer-information="updateCustomerInformation"
           @update:donation-mask="updateDonationMask"
         />
-        <button class="btn btn-success mb-3" type="submit">Spende abschicken</button>
         <div v-for="donationNumber in numberOfDonations" :key="donationNumber">
           <AddClothingDonation
             :index="donationNumber - 1"
             @update:donation="updateDonation"
           />
         </div>
+        <button class="btn btn-success mb-3" type="submit">Spende abschicken</button>
       </form>
     </section>
   </div>

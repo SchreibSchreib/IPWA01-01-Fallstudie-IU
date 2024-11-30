@@ -24,7 +24,7 @@
             class="form-control rounded-5"
             id="firstName"
             placeholder="Vorname"
-            @blur="updateField('firstName', $event.target.value)"
+            @input="updateField('firstName', $event.target.value)"
             required
           />
         </div>
@@ -34,7 +34,7 @@
             class="form-control rounded-5"
             id="lastName"
             placeholder="Nachname"
-            @blur="updateField('lastName', $event.target.value)"
+            @input="updateField('lastName', $event.target.value)"
             required
           />
         </div>
@@ -45,7 +45,7 @@
               class="form-control rounded-5"
               id="email"
               placeholder="Email"
-              @blur="updateField('email', $event.target.value)"
+              @input="updateField('email', $event.target.value)"
               required
             />
           </div>
@@ -59,7 +59,7 @@
               class="form-control rounded-5"
               id="zipCode"
               placeholder="PLZ"
-              @blur="
+              @input="
                 updateField('zipCode', $event.target.value);
                 validateZipCode();
               "
@@ -76,7 +76,7 @@
               class="form-control rounded-5"
               id="city"
               placeholder="Stadt"
-              @blur="updateField('city', $event.target.value)"
+              @input="updateField('city', $event.target.value)"
               required
             />
           </div>
@@ -87,7 +87,7 @@
                 class="form-control rounded-5"
                 id="street"
                 placeholder="Straße"
-                @blur="updateField('street', $event.target.value)"
+                @input="updateField('street', $event.target.value)"
                 required
               />
             </div>
@@ -97,7 +97,7 @@
                 class="form-control rounded-5"
                 id="streetNumber"
                 placeholder="Nr."
-                @blur="updateField('streetNumber', $event.target.value)"
+                @input="updateField('streetNumber', $event.target.value)"
                 required
               />
             </div>
@@ -110,7 +110,7 @@
             <select
               id="crisisArea"
               class="form-select rounded-5"
-              @blur="updateField('crisisArea', $event.target.value)"
+              @input="updateField('crisisArea', $event.target.value)"
               required
             >
               <option value="" selected disabled>Krisengebiet wählen</option>
